@@ -1,48 +1,35 @@
 // import extend from 'extend';
-var DataLoader = require( './DataLoader' );
-var extend = require( 'extend' );
+// var DataLoader = require( './DataLoader' );
+// var extend = require( 'extend' );
 
-// import jsonp from 'jsonp';
-module.exports = function( options ) {
-    DataLoader.call( this );
+import DataLoader from './DataLoader';
+import extend from 'extend';
 
-    this.options = extend( true, {
-        account: '',
-        project: null,
-        campaign: null,
-        production: null,
+export default class extends DataLoader {
 
-        sourceData: window.adapt_data,
-    }, options );
+    // constructor( options ) {
+        // // var options = extend( true, {
+            // // account: '',
+            // // project: null,
+            // // campaign: null,
+            // // production: null,
 
-    this.asset = function( path ) {
-        var returnString = 'https://cdn.adaptretail.com/' + this.options.account
+            // // sourceData: window.adapt_data,
+        // // }, options );
+
+        // super( options );
+    // }
+
+    url() {
+        return 'https://cdn.adaptretail.com/' + this.options.account
                 + '/project/' + this.options.project
                 + '/campaign/' + this.options.campaign
                 + '/production/' + this.options.production
-                + '/live/' + path;
-        return returnString;
+                + '/live/';
     }
 
-    this.options.url = this.asset( 'data.json' );
-
-
-    // Inherit from parent
-
-    this.setting = function( prop ) {
-        if (prop == 'ad_path') {
-            return this.folder();
-        }
-        return this.settings[prop];
+    asset( path ) {
+        return this.url() + path;
     }
 
-    this.folder = function( path ) {
-        var folder = this.options.url.replace( /^(.+)\/data.json/, '$1' );
-        if (path) {
-            return folder + '/' + path;
-        }
-        else {
-            return folder;
-        }
-    }
 }
