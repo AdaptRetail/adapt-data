@@ -73,3 +73,6 @@ test( 'can set custom data source', async t => {
 
 // Get adapt settings
 // Can set preview or live database
+//
+// Can use get to retrieve adapt data
+// Can ask for an array of objects instead of object with objects
