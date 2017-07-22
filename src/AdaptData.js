@@ -1,6 +1,7 @@
 // import extend from 'extend';
 var DataLoader = require( './DataLoader' );
 var extend = require( 'extend' );
+
 // import jsonp from 'jsonp';
 module.exports = function( options ) {
     DataLoader.call( this );
@@ -15,11 +16,12 @@ module.exports = function( options ) {
     }, options );
 
     this.asset = function( path ) {
-        return  'https://cdn.adaptretail.com/' + this.options.account
+        var returnString = 'https://cdn.adaptretail.com/' + this.options.account
                 + '/project/' + this.options.project
                 + '/campaign/' + this.options.campaign
                 + '/production/' + this.options.production
                 + '/live/' + path;
+        return returnString;
     }
 
     this.options.url = this.asset( 'data.json' );

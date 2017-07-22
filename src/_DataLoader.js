@@ -3,34 +3,24 @@
 var extend = require( 'extend' );
 var axios = require( 'axios' );
 
-export default class {
+// export default function( options ) {
+module.exports = function( options ) {
+    this.options = extend( true, {
+        data: null,
+        url: null,
+        sourceData: window.DataLoader,
+    }, options );
 
 
-    constructor( options ) {
 
-        this.options = {
-            data: null,
-            url: null,
-            source: window.DataLoader,
-        };
-        this.options = extend( true, this.options, options );
+    this.start = function( success ) {
 
-    }
-
-    url() {
-
-        return this.options.url;
-
-    }
-
-    start( success ) {
-
-        // source
-        if (this.options.source) {
+        // sourceData
+        if (this.options.sourceData) {
             if (success) {
-                success( this.options.source );
+                success( this.options.sourceData );
             }
-            return Promise.resolve( this.options.source );
+            return Promise.resolve( this.options.sourceData );
         }
 
         // data
