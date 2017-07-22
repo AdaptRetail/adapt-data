@@ -4,13 +4,16 @@
   "description": "Api for retreaving Adapt Retail information.",
   "main": "dist/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "ava",
+    "tdd": "executor 'npm run test' --watch='src/*.js' --watch='test/*.js'",
     "build": "babel src -d dist"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@lassehaslev/executor": "^0.1.2",
+    "ava": "^0.21.0",
     "babel-cli": "^6.24.1",
     "babel-preset-env": "^1.6.0"
   },
