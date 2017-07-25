@@ -3,6 +3,20 @@ import AdaptData from '../dist/index';
 
 global.window = {};
 
+test( 'is getting data from api if set', async t => {
+    let data = new AdaptData( {
+        account: 'priceco58c12436f20b4',
+        project: 1,
+        campaign: 1,
+        production: 1,
+    } );
+
+    await data.start().then( function(data) {
+        t.truthy( data );
+    } )
+
+} );
+
 test( 'is setting full path when adding account options', t => {
 
     let data = new AdaptData( {
@@ -15,7 +29,7 @@ test( 'is setting full path when adding account options', t => {
 
     t.is( 
         data.url(),
-        'https://cdn.adaptretail.com/account/project/project/campaign/campaign/production/production/live/'
+        'https://cdn.adaptretail.com/account/project/project/campaign/campaign/production/production/live/data.json'
     );
 
 } );
@@ -31,7 +45,7 @@ test( 'can get asset from folder', t => {
 
     t.is( 
         data.asset( 'my-image.jpg' ),
-        data.url() + 'my-image.jpg'
+        'https://cdn.adaptretail.com/account/project/project/campaign/campaign/production/production/live/my-image.jpg'
     );
 } );
 

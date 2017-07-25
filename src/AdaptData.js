@@ -21,15 +21,15 @@ export default class extends DataLoader {
     }
 
     url() {
+        return this.asset( 'data.json' );
+    }
+
+    asset( path ) {
         return 'https://cdn.adaptretail.com/' + this.options.account
                 + '/project/' + this.options.project
                 + '/campaign/' + this.options.campaign
                 + '/production/' + this.options.production
-                + '/live/';
-    }
-
-    asset( path ) {
-        return this.url() + path;
+                + '/live/' + path;
     }
 
 }

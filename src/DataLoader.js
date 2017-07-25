@@ -42,8 +42,8 @@ export default class {
         }
 
         // XHTTP request
-        if (this.options.url) {
-            return axios.get( this.options.url ).then( function( response ) {
+        if (this.url()) {
+            return axios.get( this.url() ).then( function( response ) {
                 if (success) {
                     success( response.data );
                 }
