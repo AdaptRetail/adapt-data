@@ -1,23 +1,19 @@
-var AdaptData = function(options) {
-
-
-    this.options = {
-        dataSource: options.sourceData ? options.sourceData : null,
-    },
-
-    this.start = function( success ) {
-        var dataSource = this.options.sourceData ? this.options.sourceData : window.adapt_data;
-
-        if (success) {
-            success( dataSource );
+export default class {
+    constructor( options ) {
+        this.options = {
+            // Set the default datasource
+            source: options.source ? options.source : window.adapt_data,
         }
-        return Promise.resolve( dataSource );
-    };
-    
-    this.asset = function( path ) {
-        return ad_path + path;
     }
-};
-module.exports = {
-    AdaptData: AdaptData,
+
+    start( success ) {
+        if (success) {
+            success( this.options.source );
+        }
+        return Promise.resolve( this.options.source );
+    }
+
+    asset( path ) {
+        return window.ad_path + path;
+    }
 }

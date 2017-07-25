@@ -71,6 +71,10 @@ test( 'can set custom data source', async t => {
     } );
 } )
 
+// If production_path is set use that to build the url
+
+// Get methods that uses dot syntax as laravel
+
 // Get adapt settings
 // Can set preview or live database
 //
