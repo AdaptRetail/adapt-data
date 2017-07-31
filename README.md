@@ -17,7 +17,10 @@ yarn add @adapt-retail/adapt-data
 ## API
 
 ### Create object
-´´´js
+
+Provide the adapt data when creating the AdaptData.
+
+```js
 var adapt = new AdaptData({
     account: 'priceco58c12436f20b4', // Account key
     project: 1, // Project ID
@@ -25,13 +28,13 @@ var adapt = new AdaptData({
     production: 1, // Production ID
     source: null, // optional 
 });
-´´´
+```
 
 #### Set custom datasource
 
-Setting the source property of the adapt data will overwrite any data requested by api.
+Setting the source property of the Adapt data will overwrite any data requested by api.
 This is nice for developing when you are offline
-´´´js
+```js
 var adapt = new AdaptData({
     source: {
         data: [
@@ -43,7 +46,7 @@ var adapt = new AdaptData({
         ]
     } 
 });
-´´´
+```
 
 ### Start
 
@@ -69,16 +72,16 @@ Get the asset in the adapt folder
 
 ```js
 adapt.start( function( adapt_data ) {
-    adapt.asset( 'my-image.js' );
+    adapt.asset( 'my-image.png' );
 } );
 ```
 
 ## LightAdaptData
 
 Light adapt data is a super light version for adapt data.
-It cannot request data from external source, but it can read source.
+It cannot request data from external source, but it can read `source`.
 
-> This class is meant as [Adapt Banner productions](https://adaptretail.com).
+> This class is meant for [Adapt banner productions](https://adaptretail.com).
 
 When using webpack you can set this setting when running production script.
 ```js
