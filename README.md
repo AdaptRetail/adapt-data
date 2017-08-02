@@ -20,6 +20,11 @@ yarn add @adapt-retail/adapt-data
 
 Provide the adapt data when creating the AdaptData.
 
+> Note: When creating your first Adapt `Banner` or `InstoreTV`
+> We recommend that you use a `collection` production instead of a `Banner` or `InstoreTV` production.
+> This is because you cannot generate preview of a `Banner` or `InstoreTV` production that do not have template assign to it.
+> And usually you do not have that when creating your `Adapt Template`.
+
 ```js
 var adapt = new AdaptData({
     account: 'priceco58c12436f20b4', // Account key
