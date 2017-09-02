@@ -1,6 +1,8 @@
-# @adapt-retail/banner-data
+# @adapt-retail/banner-data (alpha)
 
-> JavaScript api for communicating with Adapt `api`.
+> JavaScript api for communicating with Adapt retail `api`.
+
+> 🚧🚧 Warning: This project is in alpha stage. Use with caution. 🚧🚧
 
 ## Install
 
