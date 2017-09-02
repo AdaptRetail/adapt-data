@@ -8,8 +8,13 @@
     "tdd": "executor 'npm run build && npm run test' --watch='src/*.js' --watch='test/*.js'",
     "build": "babel src -d dist"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adaptretail/banner-data.git"
+  },
+  "bugs": "https://github.com/adaptretail/banner-data/issues",
   "keywords": [],
-  "author": "",
+  "author": "Lasse S. Haslev",
   "license": "ISC",
   "devDependencies": {
     "@lassehaslev/executor": "^0.1.2",
