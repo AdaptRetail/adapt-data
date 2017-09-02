@@ -1,4 +1,4 @@
-# @adapt-retail/adapt-data
+# @adapt-retail/banner-data
 
 > JavaScript api for communicating with Adapt `api`.
 
@@ -6,12 +6,12 @@
 
 ### NPM
 ```bash
-npm install @adapt-retail/adapt-data
+npm install @adapt-retail/banner-data
 ```
 
 ### YARN
 ```bash
-yarn add @adapt-retail/adapt-data
+yarn add @adapt-retail/banner-data
 ```
 
 ## API
@@ -26,6 +26,10 @@ Provide the adapt data when creating the AdaptData.
 > And usually you do not have that when creating your `Adapt Template`.
 
 ```js
+// Import Adapt Data
+import AdaptData from '@adapt-retail/banner-data';
+
+// Create instance
 var adapt = new AdaptData({
     account: 'priceco58c12436f20b4', // Account key
     project: 1, // Project ID
@@ -38,7 +42,7 @@ var adapt = new AdaptData({
 #### Set custom datasource
 
 Setting the source property of the Adapt data will overwrite any data requested by api.
-This is nice for developing when you are offline
+This is nice for developing when you are offline.
 ```js
 var adapt = new AdaptData({
     source: {
@@ -73,7 +77,7 @@ adapt.start( function( adapt_data ) {
 
 ### Asset
 
-Get the asset in the adapt folder
+Get the asset in the adapt folder.
 
 ```js
 adapt.start( function( adapt_data ) {
@@ -93,7 +97,7 @@ When using webpack you can set this setting when running production script.
 if (process.env.NODE_ENV === 'production') {
   module.exports.resolve = {
       alias: {
-        '@adapt-retail/adapt-data': '@adapt-retail/adapt-data/dist/LightAdaptData.js',
+        '@adapt-retail/banner-data': '@adapt-retail/banner-data/dist/LightAdaptData.js',
       }
   };
 }

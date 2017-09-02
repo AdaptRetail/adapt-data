@@ -1,7 +1,7 @@
 {
-  "name": "@adapt-retail/adapt-api",
-  "version": "0.0.1",
-  "description": "Api for retreaving Adapt Retail information.",
+  "name": "@adapt-retail/banner-data",
+  "version": "0.0.0",
+  "description": "Api for retreaving Adapt Retail information to banners.",
   "main": "dist/index.js",
   "scripts": {
     "test": "ava",
