@@ -34,6 +34,22 @@ test( 'is setting full path when adding account options', t => {
 
 } );
 
+test( 'can set preview url instead of live', t=>{
+
+    let data = new AdaptData( {
+        account: 'account',
+        project: 'project',
+        campaign: 'campaign',
+        production: 'production',
+        preview: true,
+    } )
+
+    t.is( 
+        data.url(),
+        'https://cdn.adaptretail.com/account/project/project/campaign/campaign/production/production/preview/data.json'
+    );
+} );
+
 test( 'can get asset from folder', t => {
     let data = new AdaptData( {
         account: 'account',

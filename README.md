@@ -38,8 +38,13 @@ var adapt = new AdaptData({
     campaign: 1, // Campaign ID
     production: 1, // Production ID
     source: null, // optional 
+    preview: false, // optional
 });
 ```
+
+#### Live vs Preview
+Setting preview `preview: true` will use the slower but faster reloading of data.
+For live sites, make sure to use the `preview: false` to use our fast CDN with cache reload in 5 minutes.
 
 #### Set custom datasource
 

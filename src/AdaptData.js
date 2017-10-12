@@ -15,6 +15,7 @@ export default class extends DataLoader {
             production: null,
 
             source: window.adapt_data,
+            preview: false,
         }, options );
 
         super( options );
@@ -25,11 +26,12 @@ export default class extends DataLoader {
     }
 
     asset( path ) {
+        let connectionType = this.options.preview ? 'preview' : 'live'
         return 'https://cdn.adaptretail.com/' + this.options.account
                 + '/project/' + this.options.project
                 + '/campaign/' + this.options.campaign
                 + '/production/' + this.options.production
-                + '/live/' + path;
+                + '/' + connectionType + '/' + path;
     }
 
 }
