@@ -14,6 +14,7 @@ export default class {
             source: window.DataLoader,
         };
         this.options = extend( true, this.options, options );
+        this.data = null;
 
     }
 
@@ -30,6 +31,7 @@ export default class {
             if (success) {
                 success( this.options.source );
             }
+            this.data = this.options.source;
             return Promise.resolve( this.options.source );
         }
 
@@ -38,6 +40,7 @@ export default class {
             if (success) {
                 success( this.options.data );
             }
+            this.data = this.options.data;
             return Promise.resolve( this.options.data );
         }
 
@@ -47,8 +50,9 @@ export default class {
                 if (success) {
                     success( response.data );
                 }
+                this.data = response.data;
                 return response.data;
-            } );
+            }.bind( this ) );
         }
 
         return Promise.reject('There was not any source data, data or url provided in DataLoader.' );

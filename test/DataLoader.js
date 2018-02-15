@@ -34,6 +34,8 @@ test( 'is grabbing data from url when calling start', async t => {
     await data.start().then( function( data ) {
         t.truthy( data.name );
     } );
+
+    t.truthy( data.data.name );
 } );
 
 test( 'can retrieve response through success function in start', async t => {
@@ -50,6 +52,8 @@ test( 'can retrieve response through success function in start', async t => {
         t.truthy( data.name );
     } );
 
+    t.truthy( data.data.name );
+
 } );
 
 test( 'if source data is set use that instead of request url', async t => {
@@ -63,8 +67,9 @@ test( 'if source data is set use that instead of request url', async t => {
         source: mock,
     } );
 
-    data.start().then( function( data ) {
-        t.deepEqual( data, mock );
+    data.start().then( function( response ) {
+        t.deepEqual( response, mock );
+        t.deepEqual( data.data, mock );
     } );
 
 } );
